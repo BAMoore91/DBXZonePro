@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<functions>
+  <category name="Scenes">
+    <function name="Recall Scene" export="RecallScene" repeatrate="0">
+      <parameter name="Scene" type="integer" min="0" max="500" default="1"
+                 description="Scene number stored in the ZonePro (0 = default scene)." />
+    </function>
+  </category>
+
+  <category name="Zone Control">
+    <function name="Select Source" export="SelectSource" repeatrate="0">
+      <parameter name="Zone" type="mcinteger" default="1" description="Output zone.">
+        <choice name="%%__Zone1Name%%" value="1" condition="$Zone1Enabled" />
+        <choice name="%%__Zone2Name%%" value="2" condition="$Zone2Enabled" />
+        <choice name="%%__Zone3Name%%" value="3" condition="$Zone3Enabled" />
+        <choice name="%%__Zone4Name%%" value="4" condition="$Zone4Enabled" />
+        <choice name="%%__Zone5Name%%" value="5" condition="$Zone5Enabled" />
+        <choice name="%%__Zone6Name%%" value="6" condition="$Zone6Enabled" />
+      </parameter>
+      <parameter name="Source" type="integer" min="0" max="12" default="1"
+                 description="Router input number (0 = none/off). Stereo pairs are addressed by their lower input number." />
+    </function>
+
+    <function name="Set Level (Percent)" export="SetLevelPct" repeatrate="0">
+      <parameter name="Zone" type="mcinteger" default="1" description="Output zone.">
+        <choice name="%%__Zone1Name%%" value="1" condition="$Zone1Enabled" />
+        <choice name="%%__Zone2Name%%" value="2" condition="$Zone2Enabled" />
+        <choice name="%%__Zone3Name%%" value="3" condition="$Zone3Enabled" />
+        <choice name="%%__Zone4Name%%" value="4" condition="$Zone4Enabled" />
+        <choice name="%%__Zone5Name%%" value="5" condition="$Zone5Enabled" />
+        <choice name="%%__Zone6Name%%" value="6" condition="$Zone6Enabled" />
+      </parameter>
+      <parameter name="Level" type="integer" min="0" max="100" default="50"
+                 description="Zone output level, 0-100%. Attach to a slider for direct control." />
+    </function>
+
+    <function name="Set Level (Raw)" export="SetLevelRaw" repeatrate="0">
+      <parameter name="Zone" type="mcinteger" default="1" description="Output zone.">
+        <choice name="%%__Zone1Name%%" value="1" condition="$Zone1Enabled" />
+        <choice name="%%__Zone2Name%%" value="2" condition="$Zone2Enabled" />
+        <choice name="%%__Zone3Name%%" value="3" condition="$Zone3Enabled" />
+        <choice name="%%__Zone4Name%%" value="4" condition="$Zone4Enabled" />
+        <choice name="%%__Zone5Name%%" value="5" condition="$Zone5Enabled" />
+        <choice name="%%__Zone6Name%%" value="6" condition="$Zone6Enabled" />
+      </parameter>
+      <parameter name="Raw Value" type="integer" min="0" max="500" default="215"
+                 description="Raw fader counts (protocol guide: 0-415, 215 = 0 dB, 10 counts per dB)." />
+    </function>
+
+    <function name="Level Up" export="LevelUp" repeatrate="200">
+      <parameter name="Zone" type="mcinteger" default="1" description="Output zone.">
+        <choice name="%%__Zone1Name%%" value="1" condition="$Zone1Enabled" />
+        <choice name="%%__Zone2Name%%" value="2" condition="$Zone2Enabled" />
+        <choice name="%%__Zone3Name%%" value="3" condition="$Zone3Enabled" />
+        <choice name="%%__Zone4Name%%" value="4" condition="$Zone4Enabled" />
+        <choice name="%%__Zone5Name%%" value="5" condition="$Zone5Enabled" />
+        <choice name="%%__Zone6Name%%" value="6" condition="$Zone6Enabled" />
+      </parameter>
+    </function>
+
+    <function name="Level Down" export="LevelDown" repeatrate="200">
+      <parameter name="Zone" type="mcinteger" default="1" description="Output zone.">
+        <choice name="%%__Zone1Name%%" value="1" condition="$Zone1Enabled" />
+        <choice name="%%__Zone2Name%%" value="2" condition="$Zone2Enabled" />
+        <choice name="%%__Zone3Name%%" value="3" condition="$Zone3Enabled" />
+        <choice name="%%__Zone4Name%%" value="4" condition="$Zone4Enabled" />
+        <choice name="%%__Zone5Name%%" value="5" condition="$Zone5Enabled" />
+        <choice name="%%__Zone6Name%%" value="6" condition="$Zone6Enabled" />
+      </parameter>
+    </function>
+
+    <function name="Mute On" export="MuteOn" repeatrate="0">
+      <parameter name="Zone" type="mcinteger" default="1" description="Output zone.">
+        <choice name="%%__Zone1Name%%" value="1" condition="$Zone1Enabled" />
+        <choice name="%%__Zone2Name%%" value="2" condition="$Zone2Enabled" />
+        <choice name="%%__Zone3Name%%" value="3" condition="$Zone3Enabled" />
+        <choice name="%%__Zone4Name%%" value="4" condition="$Zone4Enabled" />
+        <choice name="%%__Zone5Name%%" value="5" condition="$Zone5Enabled" />
+        <choice name="%%__Zone6Name%%" value="6" condition="$Zone6Enabled" />
+      </parameter>
+    </function>
+
+    <function name="Mute Off" export="MuteOff" repeatrate="0">
+      <parameter name="Zone" type="mcinteger" default="1" description="Output zone.">
+        <choice name="%%__Zone1Name%%" value="1" condition="$Zone1Enabled" />
+        <choice name="%%__Zone2Name%%" value="2" condition="$Zone2Enabled" />
+        <choice name="%%__Zone3Name%%" value="3" condition="$Zone3Enabled" />
+        <choice name="%%__Zone4Name%%" value="4" condition="$Zone4Enabled" />
+        <choice name="%%__Zone5Name%%" value="5" condition="$Zone5Enabled" />
+        <choice name="%%__Zone6Name%%" value="6" condition="$Zone6Enabled" />
+      </parameter>
+    </function>
+
+    <function name="Mute Toggle" export="MuteToggle" repeatrate="0">
+      <parameter name="Zone" type="mcinteger" default="1" description="Output zone.">
+        <choice name="%%__Zone1Name%%" value="1" condition="$Zone1Enabled" />
+        <choice name="%%__Zone2Name%%" value="2" condition="$Zone2Enabled" />
+        <choice name="%%__Zone3Name%%" value="3" condition="$Zone3Enabled" />
+        <choice name="%%__Zone4Name%%" value="4" condition="$Zone4Enabled" />
+        <choice name="%%__Zone5Name%%" value="5" condition="$Zone5Enabled" />
+        <choice name="%%__Zone6Name%%" value="6" condition="$Zone6Enabled" />
+      </parameter>
+    </function>
+  </category>
+
+  <category name="Room Volume (Autoprogramming)">
+    <function name="%%__Zone1Name%% Volume Up" export="LevelUp:Z1" repeatrate="200"
+              condition="$Zone1Enabled" buttontag="VolumeUp" sourceid="Zone1">
+      <parameter name="Zone" type="integer" min="1" max="6" default="1" hidden="true" />
+    </function>
+    <function name="%%__Zone1Name%% Volume Down" export="LevelDown:Z1" repeatrate="200"
+              condition="$Zone1Enabled" buttontag="VolumeDown" sourceid="Zone1">
+      <parameter name="Zone" type="integer" min="1" max="6" default="1" hidden="true" />
+    </function>
+    <function name="%%__Zone1Name%% Mute Toggle" export="MuteToggle:Z1" repeatrate="0"
+              condition="$Zone1Enabled" buttontag="MuteToggle" sourceid="Zone1">
+      <parameter name="Zone" type="integer" min="1" max="6" default="1" hidden="true" />
+    </function>
+
+    <function name="%%__Zone2Name%% Volume Up" export="LevelUp:Z2" repeatrate="200"
+              condition="$Zone2Enabled" buttontag="VolumeUp" sourceid="Zone2">
+      <parameter name="Zone" type="integer" min="1" max="6" default="2" hidden="true" />
+    </function>
+    <function name="%%__Zone2Name%% Volume Down" export="LevelDown:Z2" repeatrate="200"
+              condition="$Zone2Enabled" buttontag="VolumeDown" sourceid="Zone2">
+      <parameter name="Zone" type="integer" min="1" max="6" default="2" hidden="true" />
+    </function>
+    <function name="%%__Zone2Name%% Mute Toggle" export="MuteToggle:Z2" repeatrate="0"
+              condition="$Zone2Enabled" buttontag="MuteToggle" sourceid="Zone2">
+      <parameter name="Zone" type="integer" min="1" max="6" default="2" hidden="true" />
+    </function>
+
+    <function name="%%__Zone3Name%% Volume Up" export="LevelUp:Z3" repeatrate="200"
+              condition="$Zone3Enabled" buttontag="VolumeUp" sourceid="Zone3">
+      <parameter name="Zone" type="integer" min="1" max="6" default="3" hidden="true" />
+    </function>
+    <function name="%%__Zone3Name%% Volume Down" export="LevelDown:Z3" repeatrate="200"
+              condition="$Zone3Enabled" buttontag="VolumeDown" sourceid="Zone3">
+      <parameter name="Zone" type="integer" min="1" max="6" default="3" hidden="true" />
+    </function>
+    <function name="%%__Zone3Name%% Mute Toggle" export="MuteToggle:Z3" repeatrate="0"
+              condition="$Zone3Enabled" buttontag="MuteToggle" sourceid="Zone3">
+      <parameter name="Zone" type="integer" min="1" max="6" default="3" hidden="true" />
+    </function>
+
+    <function name="%%__Zone4Name%% Volume Up" export="LevelUp:Z4" repeatrate="200"
+              condition="$Zone4Enabled" buttontag="VolumeUp" sourceid="Zone4">
+      <parameter name="Zone" type="integer" min="1" max="6" default="4" hidden="true" />
+    </function>
+    <function name="%%__Zone4Name%% Volume Down" export="LevelDown:Z4" repeatrate="200"
+              condition="$Zone4Enabled" buttontag="VolumeDown" sourceid="Zone4">
+      <parameter name="Zone" type="integer" min="1" max="6" default="4" hidden="true" />
+    </function>
+    <function name="%%__Zone4Name%% Mute Toggle" export="MuteToggle:Z4" repeatrate="0"
+              condition="$Zone4Enabled" buttontag="MuteToggle" sourceid="Zone4">
+      <parameter name="Zone" type="integer" min="1" max="6" default="4" hidden="true" />
+    </function>
+
+    <function name="%%__Zone5Name%% Volume Up" export="LevelUp:Z5" repeatrate="200"
+              condition="$Zone5Enabled" buttontag="VolumeUp" sourceid="Zone5">
+      <parameter name="Zone" type="integer" min="1" max="6" default="5" hidden="true" />
+    </function>
+    <function name="%%__Zone5Name%% Volume Down" export="LevelDown:Z5" repeatrate="200"
+              condition="$Zone5Enabled" buttontag="VolumeDown" sourceid="Zone5">
+      <parameter name="Zone" type="integer" min="1" max="6" default="5" hidden="true" />
+    </function>
+    <function name="%%__Zone5Name%% Mute Toggle" export="MuteToggle:Z5" repeatrate="0"
+              condition="$Zone5Enabled" buttontag="MuteToggle" sourceid="Zone5">
+      <parameter name="Zone" type="integer" min="1" max="6" default="5" hidden="true" />
+    </function>
+
+    <function name="%%__Zone6Name%% Volume Up" export="LevelUp:Z6" repeatrate="200"
+              condition="$Zone6Enabled" buttontag="VolumeUp" sourceid="Zone6">
+      <parameter name="Zone" type="integer" min="1" max="6" default="6" hidden="true" />
+    </function>
+    <function name="%%__Zone6Name%% Volume Down" export="LevelDown:Z6" repeatrate="200"
+              condition="$Zone6Enabled" buttontag="VolumeDown" sourceid="Zone6">
+      <parameter name="Zone" type="integer" min="1" max="6" default="6" hidden="true" />
+    </function>
+    <function name="%%__Zone6Name%% Mute Toggle" export="MuteToggle:Z6" repeatrate="0"
+              condition="$Zone6Enabled" buttontag="MuteToggle" sourceid="Zone6">
+      <parameter name="Zone" type="integer" min="1" max="6" default="6" hidden="true" />
+    </function>
+  </category>
+
+  <category name="Input Gains">
+    <function name="Set Input Gain (Percent)" export="SetInputGainPct" repeatrate="0">
+      <parameter name="Input" type="integer" min="1" max="12" default="1"
+                 description="Device input number. The input's gain object ID must be configured in the driver settings." />
+      <parameter name="Level" type="integer" min="0" max="100" default="50"
+                 description="Input gain, 0-100%." />
+    </function>
+  </category>
+
+  <category name="Advanced">
+    <function name="Send Custom Command" export="SendCustom" repeatrate="0">
+      <parameter name="Message Hex" type="string" maxlength="240"
+                 description="dbx message in hex, from the Version byte (01) through the payload. Capture with ZonePro Designer's Network Trace (Ctrl+Shift+T). The driver adds serial framing and checksum automatically." />
+    </function>
+    <function name="Resync Serial Link" export="ForceResync" repeatrate="0" />
+  </category>
+</functions>

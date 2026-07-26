@@ -1,0 +1,26 @@
+{\rtf1\ansi\ansicpg1252\deff0{\fonttbl{\f0\fswiss Arial;}}
+\f0\fs22
+{\b\fs28 dbx ZonePro 1260 Driver\par}
+\par
+{\b Overview\par}
+This driver controls a dbx ZonePro 1260/1261 (and other ZonePro series) digital zone processor over RS-232 or TCP/IP. It implements the dbx open-loop protocol recommended for third-party controllers: commands are sent unacknowledged, and zone state (source, level, mute, scene) is tracked by the driver and exposed through system variables. State survives processor reboots via the driver's persistent store.\par
+\par
+{\b Connection\par}
+RS-232: the ZonePro serial port is fixed at 57600 baud, 8 data bits, 1 stop bit, no parity, no handshaking. The driver automatically sends the required 1-second keep-alive ping and re-synchronizes the link when needed. The Device Online variable and the Connected/Disconnected events follow the ping replies from the unit.\par
+TCP/IP: connect to the ZonePro's IP address on port 3804. The Device Online variable follows the TCP connection state.\par
+\par
+{\b Zone setup\par}
+Each output zone is controlled through its Router (RTE) object inside the ZonePro configuration. The default object IDs in this driver match the ZonePro 1260 factory default configuration. If a custom configuration has been loaded with ZonePro Designer, look up each router's object ID by selecting it in the Program screen and pressing Ctrl+Shift+O (or capture a command with the Network Trace window, Ctrl+Shift+T) and enter the four hex bytes in the driver configuration. IMPORTANT: if the ZonePro configuration is changed, the object IDs may change too.\par
+\par
+{\b Levels\par}
+The dbx protocol guide documents ZonePro faders as raw values 0..415 with 215 = 0 dB (10 counts per dB). Percent levels are scaled onto this range. If your configuration uses a different fader range, adjust the values in the Level Scaling category.\par
+\par
+{\b Scenes\par}
+Recall Scene loads a stored scene in the unit. Because the driver is open loop, the unit does not report the parameter changes a scene causes, so zone variables may not reflect the device state until new commands are sent.\par
+\par
+{\b Custom commands\par}
+The Send Custom Command function transmits any dbx message. Enter the bytes in hex starting at the Version byte (01). The driver adds the serial sync/framing/checksum automatically (or sends the message as-is over TCP).\par
+\par
+{\b Notes\par}
+The controller uses node address 00 33 as documented by dbx for third-party controllers; do not set the ZonePro to that address. The ZonePro 1260 factory node address is 00 20.\par
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<device>
+  <sources>
+    <source maxitems="6" name="Zone" sourceid="Zone">
+      <capabilities>
+        <audio roomvolumesource="true" />
+      </capabilities>
+    </source>
+  </sources>
+</device>

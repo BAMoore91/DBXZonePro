@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<driverManifest>
+  <driver id="{87637819-439E-469D-868B-5D524F32F12D}"
+          name="dbx ZonePro 1260"
+          author="BAMoore91"
+          copyright="Copyright 2026"
+          deviceManufacturer="dbx (Harman)"
+          deviceModel="ZonePro 1260 / 1261 (ZonePro series)"
+          driverVersion="1.0"
+          minimumRuntimeVersion="3"
+          minimumSoftwareVersion="9.0"
+          minimumApexVersion="10.0"
+          processorType="XP-8"
+          configSettingsStream="ConfigSettings.xml"
+          systemVariablesStream="SystemVariables.xml"
+          systemFunctionsStream="SystemFunctions.xml"
+          systemEventsStream="SystemEvents.xml"
+          deviceDescriptionStream="DeviceDescription.xml"
+          helpTextStream="DriverHelp.rtf">
+    <processorScript stream="dbx_zonepro1260.js" />
+  </driver>
+</driverManifest>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<variables>
+  <category name="Status">
+    <variable name="Device Online" sysvar="Online" type="boolean"
+              format="B:Offline:Online" sample="true" />
+    <variable name="Current Scene" sysvar="CurrentScene" type="integer"
+              min="0" max="500" sample="1" />
+  </category>
+
+  <category name="%%__Zone1Name%%" condition="$Zone1Enabled" sourceid="Zone1">
+    <variable name="%%__Zone1Name%% Source" sysvar="Zone1Source" type="integer" min="0" max="12" sample="1" />
+    <variable name="%%__Zone1Name%% Level" sysvar="Zone1LevelPct" type="integer" min="0" max="100" sample="52" />
+    <variable name="%%__Zone1Name%% Level dB" sysvar="Zone1LevelDb" type="string" sample="-10.0 dB" />
+    <variable name="%%__Zone1Name%% Mute" sysvar="Zone1Mute" type="boolean" format="B: :Muted" sample="false" />
+  </category>
+
+  <category name="%%__Zone2Name%%" condition="$Zone2Enabled" sourceid="Zone2">
+    <variable name="%%__Zone2Name%% Source" sysvar="Zone2Source" type="integer" min="0" max="12" sample="1" />
+    <variable name="%%__Zone2Name%% Level" sysvar="Zone2LevelPct" type="integer" min="0" max="100" sample="52" />
+    <variable name="%%__Zone2Name%% Level dB" sysvar="Zone2LevelDb" type="string" sample="-10.0 dB" />
+    <variable name="%%__Zone2Name%% Mute" sysvar="Zone2Mute" type="boolean" format="B: :Muted" sample="false" />
+  </category>
+
+  <category name="%%__Zone3Name%%" condition="$Zone3Enabled" sourceid="Zone3">
+    <variable name="%%__Zone3Name%% Source" sysvar="Zone3Source" type="integer" min="0" max="12" sample="1" />
+    <variable name="%%__Zone3Name%% Level" sysvar="Zone3LevelPct" type="integer" min="0" max="100" sample="52" />
+    <variable name="%%__Zone3Name%% Level dB" sysvar="Zone3LevelDb" type="string" sample="-10.0 dB" />
+    <variable name="%%__Zone3Name%% Mute" sysvar="Zone3Mute" type="boolean" format="B: :Muted" sample="false" />
+  </category>
+
+  <category name="%%__Zone4Name%%" condition="$Zone4Enabled" sourceid="Zone4">
+    <variable name="%%__Zone4Name%% Source" sysvar="Zone4Source" type="integer" min="0" max="12" sample="1" />
+    <variable name="%%__Zone4Name%% Level" sysvar="Zone4LevelPct" type="integer" min="0" max="100" sample="52" />
+    <variable name="%%__Zone4Name%% Level dB" sysvar="Zone4LevelDb" type="string" sample="-10.0 dB" />
+    <variable name="%%__Zone4Name%% Mute" sysvar="Zone4Mute" type="boolean" format="B: :Muted" sample="false" />
+  </category>
+
+  <category name="%%__Zone5Name%%" condition="$Zone5Enabled" sourceid="Zone5">
+    <variable name="%%__Zone5Name%% Source" sysvar="Zone5Source" type="integer" min="0" max="12" sample="1" />
+    <variable name="%%__Zone5Name%% Level" sysvar="Zone5LevelPct" type="integer" min="0" max="100" sample="52" />
+    <variable name="%%__Zone5Name%% Level dB" sysvar="Zone5LevelDb" type="string" sample="-10.0 dB" />
+    <variable name="%%__Zone5Name%% Mute" sysvar="Zone5Mute" type="boolean" format="B: :Muted" sample="false" />
+  </category>
+
+  <category name="%%__Zone6Name%%" condition="$Zone6Enabled" sourceid="Zone6">
+    <variable name="%%__Zone6Name%% Source" sysvar="Zone6Source" type="integer" min="0" max="12" sample="1" />
+    <variable name="%%__Zone6Name%% Level" sysvar="Zone6LevelPct" type="integer" min="0" max="100" sample="52" />
+    <variable name="%%__Zone6Name%% Level dB" sysvar="Zone6LevelDb" type="string" sample="-10.0 dB" />
+    <variable name="%%__Zone6Name%% Mute" sysvar="Zone6Mute" type="boolean" format="B: :Muted" sample="false" />
+  </category>
+</variables>
