@@ -68,10 +68,11 @@ var g_useTCP     = false;
 var g_comm       = null;
 var g_online     = false;
 var g_nodeAddr   = [0x00, 0x20];   // ZonePro node address (dest device)
-var g_faderMax   = 415;            // raw fader full scale
-var g_fader0dB   = 215;            // raw fader value that equals 0 dB
-var g_levelStep  = 20;             // raw counts per Level Up/Down press
-var g_defaultRaw = 215;
+var g_faderMax    = 415;           // raw fader full scale
+var g_fader0dB    = 215;           // raw fader value that equals 0 dB
+var g_countsPerDb = 2;             // raw counts per dB (observed on ZP1260 hardware)
+var g_levelStep   = 2;             // raw counts per Level Up/Down press
+var g_defaultRaw  = 215;
 
 var g_zones  = [];                 // [{enabled, obj, source, raw, mute}]
 var g_inputs = [];                 // [{obj, raw}]
@@ -197,7 +198,7 @@ function RawToDbText(raw)
 {
     if (raw <= 0)
         return "Off";
-    var db = (raw - g_fader0dB) / 10;
+    var db = (raw - g_fader0dB) / g_countsPerDb;
     var txt = db.toFixed(1) + " dB";
     if (db > 0)
         txt = "+" + txt;
@@ -627,11 +628,13 @@ function Init()
 {
     g_debug = CfgBool("Debug");
 
-    g_useTCP     = (CfgInt("ConnectionType", 0) == 1);
-    g_faderMax   = Clamp(CfgInt("FaderMax", 415), 1, 65535);
-    g_fader0dB   = Clamp(CfgInt("Fader0dB", 215), 0, g_faderMax);
-    g_levelStep  = Clamp(CfgInt("LevelStep", 20), 1, g_faderMax);
-    g_defaultRaw = Clamp(CfgInt("DefaultLevel", 215), 0, g_faderMax);
+    g_useTCP      = (CfgInt("ConnectionType", 0) == 1);
+    g_faderMax    = Clamp(CfgInt("FaderMax", 415), 1, 65535);
+    g_fader0dB    = Clamp(CfgInt("Fader0dB", 215), 0, g_faderMax);
+    g_countsPerDb = Clamp(CfgInt("CountsPerDb", 2), 1, 100);
+    // Level Up/Down move by a whole number of dB per press.
+    g_levelStep   = Clamp(CfgInt("LevelStepDb", 1), 1, 100) * g_countsPerDb;
+    g_defaultRaw  = Clamp(CfgInt("DefaultLevel", 215), 0, g_faderMax);
 
     var node = ParseHexBytes(Config.Get("NodeAddress"));
     if (node != null && node.length == 2)

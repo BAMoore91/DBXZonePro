@@ -6,7 +6,7 @@
           copyright="Copyright 2026"
           deviceManufacturer="dbx (Harman)"
           deviceModel="ZonePro 1260 / 1261 (ZonePro series)"
-          driverVersion="1.0"
+          driverVersion="1.1"
           minimumRuntimeVersion="3"
           minimumSoftwareVersion="9.0"
           minimumApexVersion="10.0"

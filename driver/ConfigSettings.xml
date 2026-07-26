@@ -43,13 +43,15 @@
   </category>
 
   <category name="Level Scaling" advanced="true"
-            description="Raw fader scaling. The dbx protocol guide documents ZonePro faders as 0..415 raw counts with 215 = 0 dB (10 counts per dB, 2 dB steps every 20 counts). If your configuration reports a different device range (the dbx AMX module uses 0..221 for router output levels on some models), adjust the full-scale value here.">
+            description="Raw fader scaling. ZonePro 1260 hardware has been observed to move the output fader 1 dB per 2 raw counts (the dbx protocol guide's written examples suggest 10 counts per dB - adjust Counts per dB if your unit steps by the wrong amount). If your configuration reports a different device range (the dbx AMX module uses 0..221 for router output levels on some models), adjust the full-scale value here.">
     <setting type="integer" name="Fader Full Scale (raw)" variable="FaderMax" default="415"
              description="Raw fader value that 100% maps to. Protocol guide default: 415." />
     <setting type="integer" name="Fader 0 dB Value (raw)" variable="Fader0dB" default="215"
              description="Raw fader value equal to 0 dB, used for the dB readout variable. Protocol guide default: 215." />
-    <setting type="integer" name="Level Step (raw counts)" variable="LevelStep" default="20"
-             description="Raw counts added or removed per Level Up/Down press. 20 counts = 2 dB." />
+    <setting type="integer" name="Counts per dB (raw)" variable="CountsPerDb" default="2"
+             description="Raw fader counts per 1 dB. Observed on ZonePro 1260 hardware: 2. Used for the Level Up/Down step and the dB readout variable." />
+    <setting type="integer" name="Level Step (dB)" variable="LevelStepDb" default="1"
+             description="How many dB each Level Up/Down press changes the zone output." />
     <setting type="integer" name="Power-On Level (raw)" variable="DefaultLevel" default="215"
              description="Assumed zone level before any command has been sent (the driver is open loop and cannot read the real value)." />
   </category>

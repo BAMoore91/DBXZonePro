@@ -13,7 +13,7 @@ TCP/IP: connect to the ZonePro's IP address on port 3804. The Device Online vari
 Each output zone is controlled through its Router (RTE) object inside the ZonePro configuration. The default object IDs in this driver match the ZonePro 1260 factory default configuration. If a custom configuration has been loaded with ZonePro Designer, look up each router's object ID by selecting it in the Program screen and pressing Ctrl+Shift+O (or capture a command with the Network Trace window, Ctrl+Shift+T) and enter the four hex bytes in the driver configuration. IMPORTANT: if the ZonePro configuration is changed, the object IDs may change too.\par
 \par
 {\b Levels\par}
-The dbx protocol guide documents ZonePro faders as raw values 0..415 with 215 = 0 dB (10 counts per dB). Percent levels are scaled onto this range. If your configuration uses a different fader range, adjust the values in the Level Scaling category.\par
+ZonePro faders are raw values 0..415. Percent levels are scaled onto this range. Level Up/Down move by a configurable number of dB per press (default 1 dB); the raw counts per dB default to 2, as observed on ZonePro 1260 hardware. If Level Up/Down steps by the wrong amount on your unit, or your configuration uses a different fader range, adjust the values in the Level Scaling category.\par
 \par
 {\b Scenes\par}
 Recall Scene loads a stored scene in the unit. Because the driver is open loop, the unit does not report the parameter changes a scene causes, so zone variables may not reflect the device state until new commands are sent.\par
