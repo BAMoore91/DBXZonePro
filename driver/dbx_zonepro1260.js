@@ -83,15 +83,22 @@ var g_ffRun        = 0;            // consecutive 0xFF bytes seen from device
 
 // -------------------------------------------------------------------- debug
 
+// System.Print messages may not contain a percent sign (RTI guide 7.1.2),
+// and user-supplied strings can reach these helpers via error paths.
+function SafeMsg(msg)
+{
+    return ("" + msg).replace(/%/g, "<pct>");
+}
+
 function DBG(msg)
 {
     if (g_debug)
-        System.Print("dbx ZonePro: " + msg + "\r\n");
+        System.Print("dbx ZonePro: " + SafeMsg(msg) + "\r\n");
 }
 
 function ERR(msg)
 {
-    System.Print("dbx ZonePro ERROR: " + msg + "\r\n");
+    System.Print("dbx ZonePro ERROR: " + SafeMsg(msg) + "\r\n");
 }
 
 function HexDump(bytes)
@@ -145,12 +152,12 @@ function ParseHexBytes(str)
             continue;
         if (t.length % 2 != 0)
             t = "0" + t;
-        for (var j = 0; j < t.length; j += 2) {
-            var b = parseInt(t.substr(j, 2), 16);
-            if (isNaN(b))
-                return null;
-            bytes.push(b & 0xFF);
-        }
+        // parseInt() silently stops at the first bad character ("2G" -> 2),
+        // so reject anything that is not pure hex before converting.
+        if (!/^[0-9A-Fa-f]+$/.test(t))
+            return null;
+        for (var j = 0; j < t.length; j += 2)
+            bytes.push(parseInt(t.substr(j, 2), 16) & 0xFF);
     }
     if (bytes.length == 0)
         return null;

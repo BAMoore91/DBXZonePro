@@ -220,6 +220,35 @@ sb.SelectSource(9, 1);
 check("invalid zone sends nothing", String(txLog.length), "0");
 check("invalid zone prints error", String(printed.length > errorsBefore), "true");
 
+// invalid hex must be rejected outright, not partially parsed (parseInt
+// stops at the first bad char, so "2G" would otherwise become 0x02)
+sb.SendCustom("01 00 2G");
+check("SendCustom rejects invalid hex digit", String(txLog.length), "0");
+sb.SendCustom("50%");
+check("SendCustom rejects percent sign", String(txLog.length), "0");
+check("error output sanitizes percent for System.Print",
+    String(printed[printed.length - 1].indexOf("%") === -1), "true");
+
+// a node-address typo must fall back to the default 00 20, not node 00 02
+{
+    const badCfg = Object.assign({}, baseConfig, { NodeAddress: "00 2G" });
+    const savedStore = persistStore;
+    persistStore = {};
+    const sbBad = runDriver(badCfg);
+    txLog.length = 0;
+    sbBad.RecallScene(1);
+    const frame = strToHex(txLog.shift());
+    check("bad NodeAddress falls back to default 00 20",
+        frame.substr(3 * 14, 5), "00 20"); // dest device at byte offset 14
+    persistStore = savedStore;
+}
+sb = runDriver(baseConfig); // restore primary sandbox state for tests below
+txLog.length = 0;
+sb.SelectSource(1, 1); txLog.shift();
+sb.SetLevelPct(1, 100); txLog.shift();
+sb.LevelDown(1); txLog.shift();
+sb.RecallScene(2); txLog.shift();
+
 // ---- persistence round trip
 // The driver's shutdown hook flushes any pending (timer-debounced) save.
 sb.System.OnShutdownFunc();
