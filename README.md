@@ -94,13 +94,19 @@ PackageDriver warns (but does not fail) on non-standard tags.
   `00 20`). The driver itself uses node `00 33`, the address dbx documents
   for third-party controllers — don't assign that to the ZonePro.
 * **Zones** — enable/disable and name each zone, and set each zone's
-  **Router (RTE) object ID** (4 hex bytes). Defaults match the ZonePro 1260
-  factory configuration (`01 05 00 1E` … `01 05 05 23`). For a custom
-  ZonePro Designer configuration, read each router's object ID with
-  **Ctrl+Shift+O** on the Program screen, or capture a command with the
-  **Network Trace** window (**Ctrl+Shift+T**). Zones 4–6 defaults are
-  extrapolated from the documented zone 1–3 values — verify them against
-  your unit.
+  **Router (RTE) object ID** (4 hex bytes). **Object IDs depend on the
+  configuration loaded in the unit**, so always verify them against your
+  device: read each router's ID with **Ctrl+Shift+O** on the Program
+  screen, or capture a command with the **Network Trace** window
+  (**Ctrl+Shift+T**). The Ctrl+Shift+O dialog lists the four Address bytes
+  as b0–b3 top-to-bottom in **decimal**; the driver wants them in send
+  order **b3 b2 b1 b0**, converted to hex (e.g. b0=22, b1=0, b2=5, b3=1 →
+  `01 05 00 16`). The shipped defaults were read from a ZonePro 1261
+  (Node 32) test unit (`01 05 00 16` … `01 05 05 1B`, zones 1–2 confirmed,
+  3–6 following the same Row/Index pattern). **Note:** changing these
+  defaults in the driver does *not* update the values already stored in an
+  existing Integration Designer project — edit the Zone fields in the
+  Driver Configuration Editor to correct an existing install.
 * **Level Scaling** (advanced) — raw fader full scale (default 415 = +20 dB),
   0 dB point (default 215), counts-per-dB scale (default 10, per the dbx
   protocol guide: 0 dB = raw 215, +20 dB = raw 415, matching the master
