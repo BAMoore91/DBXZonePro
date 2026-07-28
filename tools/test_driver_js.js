@@ -117,7 +117,7 @@ const baseConfig = {
     NodeAddress: "00 20",
     FaderMax: "415",
     Fader0dB: "215",
-    CountsPerDb: "2",
+    CountsPerDb: "10",
     LevelStepDb: "1",
     DefaultLevel: "215",
     Debug: "false",
@@ -172,9 +172,9 @@ sb.SetLevelPct(1, 100);
 let f100 = strToHex(txLog.shift());
 check("SetLevelPct 100 -> raw 415 value bytes", f100.substr(f100.length - 8, 5), "01 9F");
 
-sb.LevelDown(1); // 1 dB step = 2 counts: 415 - 2 = 413 = 0x019D
+sb.LevelDown(1); // 1 dB step = 10 counts: 415 - 10 = 405 = 0x0195
 let f = strToHex(txLog.shift());
-check("LevelDown value bytes (1 dB = 2 counts)", f.substr(f.length - 8, 5), "01 9D");
+check("LevelDown value bytes (1 dB = 10 counts)", f.substr(f.length - 8, 5), "01 95");
 
 sb.MuteOn(2);
 check("MuteOn zone2 (serial)", strToHex(txLog.shift()),
@@ -255,12 +255,12 @@ sb.RecallScene(2); txLog.shift();
 sb.System.OnShutdownFunc();
 let saved = persistStore["state_v1"];
 check("persisted state exists", String(!!saved), "true");
-check("persisted zone1 source/raw", saved.split(";")[0], "1,413,0");
+check("persisted zone1 source/raw", saved.split(";")[0], "1,405,0");
 
 let sb2 = runDriver(baseConfig); // same persistStore
 txLog.length = 0;
 check("restored zone1 source sysvar", String(sysvars.Zone1Source), "1");
-check("restored zone1 level sysvar", String(sysvars.Zone1LevelPct), "100"); // round(413*100/415)
+check("restored zone1 level sysvar", String(sysvars.Zone1LevelPct), "98"); // round(405*100/415)
 check("restored scene sysvar", String(sysvars.CurrentScene), "2");
 
 // ---- TCP mode

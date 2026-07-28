@@ -101,14 +101,14 @@ PackageDriver warns (but does not fail) on non-standard tags.
   **Network Trace** window (**Ctrl+Shift+T**). Zones 4–6 defaults are
   extrapolated from the documented zone 1–3 values — verify them against
   your unit.
-* **Level Scaling** (advanced) — raw fader full scale (default 415),
-  0 dB point (default 215), counts-per-dB scale (default 2, as observed on
-  ZonePro 1260 hardware; the protocol guide's written examples suggest 10),
-  up/down step in dB (default 1 dB), and the assumed power-on level. If
-  Level Up/Down steps by the wrong amount on your unit, adjust **Counts per
-  dB**; if levels top out early or late, adjust **Fader Full Scale** (the
-  dbx AMX module used a 0–221 device range for router output levels on some
-  models).
+* **Level Scaling** (advanced) — raw fader full scale (default 415 = +20 dB),
+  0 dB point (default 215), counts-per-dB scale (default 10, per the dbx
+  protocol guide: 0 dB = raw 215, +20 dB = raw 415, matching the master
+  fader in the ZonePro Designer router editor), up/down step in dB
+  (default 1 dB), and the assumed power-on level. If Level Up/Down steps by
+  the wrong amount on your unit, adjust **Counts per dB**; if levels top out
+  early or late, adjust **Fader Full Scale** (the dbx AMX module used a
+  0–221 device range for router output levels on some models).
 * **Input Gains** (advanced, optional) — object IDs for the per-input gain
   objects (SV `0000`); leave blank to disable.
 * **Debug** (hidden — enable via TraceViewer's *Show Driver Debug Options*) —

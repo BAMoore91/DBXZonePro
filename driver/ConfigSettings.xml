@@ -24,7 +24,7 @@
             description="Output zone setup. Each zone is controlled through its Router (RTE) object. Find the object ID by selecting the router in ZonePro Designer and pressing Ctrl+Shift+O, or from the Network Trace window (Ctrl+Shift+T). The defaults below match the ZonePro 1260 factory default configuration.">
     <setting type="boolean" name="Zone 1 Enabled" variable="Zone1Enabled" default="true" />
     <setting type="string"  name="Zone 1 Name" variable="__Zone1Name" default="Zone 1" condition="$Zone1Enabled" />
-    <setting type="string"  name="Zone 1 Router Object ID (4 hex bytes)" variable="Zone1ObjectID" default="01 05 00 1E" condition="$Zone1Enabled" />
+    <setting type="string"  name="Zone 1 Router Object ID (4 hex bytes)" variable="Zone1ObjectID" default="01 05 01 17" condition="$Zone1Enabled" />
     <setting type="boolean" name="Zone 2 Enabled" variable="Zone2Enabled" default="true" />
     <setting type="string"  name="Zone 2 Name" variable="__Zone2Name" default="Zone 2" condition="$Zone2Enabled" />
     <setting type="string"  name="Zone 2 Router Object ID (4 hex bytes)" variable="Zone2ObjectID" default="01 05 01 1F" condition="$Zone2Enabled" />
@@ -43,13 +43,13 @@
   </category>
 
   <category name="Level Scaling" advanced="true"
-            description="Raw fader scaling. ZonePro 1260 hardware has been observed to move the output fader 1 dB per 2 raw counts (the dbx protocol guide's written examples suggest 10 counts per dB - adjust Counts per dB if your unit steps by the wrong amount). If your configuration reports a different device range (the dbx AMX module uses 0..221 for router output levels on some models), adjust the full-scale value here.">
+            description="Raw fader scaling. The dbx protocol guide maps the router master fader as raw 0..415 over -INF..+20 dB, with 215 = 0 dB and 10 raw counts per dB (each 2 dB step = 20 counts). This matches the master fader shown in the ZonePro Designer router editor. If your configuration reports a different device range (the dbx AMX module uses 0..221 for router output levels on some models), adjust the full-scale value here.">
     <setting type="integer" name="Fader Full Scale (raw)" variable="FaderMax" default="415"
-             description="Raw fader value that 100% maps to. Protocol guide default: 415." />
+             description="Raw fader value that 100% maps to (+20 dB). Protocol guide default: 415." />
     <setting type="integer" name="Fader 0 dB Value (raw)" variable="Fader0dB" default="215"
              description="Raw fader value equal to 0 dB, used for the dB readout variable. Protocol guide default: 215." />
-    <setting type="integer" name="Counts per dB (raw)" variable="CountsPerDb" default="2"
-             description="Raw fader counts per 1 dB. Observed on ZonePro 1260 hardware: 2. Used for the Level Up/Down step and the dB readout variable." />
+    <setting type="integer" name="Counts per dB (raw)" variable="CountsPerDb" default="10"
+             description="Raw fader counts per 1 dB. Per the dbx protocol guide: 10 (0 dB = raw 215, +20 dB = raw 415). Used for the Level Up/Down step size and the dB readout variable." />
     <setting type="integer" name="Level Step (dB)" variable="LevelStepDb" default="1"
              description="How many dB each Level Up/Down press changes the zone output." />
     <setting type="integer" name="Power-On Level (raw)" variable="DefaultLevel" default="215"
