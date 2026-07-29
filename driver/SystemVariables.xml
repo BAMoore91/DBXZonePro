@@ -48,4 +48,101 @@
     <variable name="%%__Zone6Name%% Level dB" sysvar="Zone6LevelDb" type="string" sample="-10.0 dB" />
     <variable name="%%__Zone6Name%% Mute" sysvar="Zone6Mute" type="boolean" format="B: :Muted" sample="false" />
   </category>
+
+
+  <category name="%%__Zone1Name%% Source Feedback" condition="$Zone1Enabled" sourceid="Zone1">
+    <variable name="%%__Zone1Name%% No Source Selected" sysvar="Zone1Src0" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone1Name%% Source 1 Selected" sysvar="Zone1Src1" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone1Name%% Source 2 Selected" sysvar="Zone1Src2" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone1Name%% Source 3 Selected" sysvar="Zone1Src3" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone1Name%% Source 4 Selected" sysvar="Zone1Src4" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone1Name%% Source 5 Selected" sysvar="Zone1Src5" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone1Name%% Source 6 Selected" sysvar="Zone1Src6" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone1Name%% Source 7 Selected" sysvar="Zone1Src7" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone1Name%% Source 8 Selected" sysvar="Zone1Src8" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone1Name%% Source 9 Selected" sysvar="Zone1Src9" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone1Name%% Source 10 Selected" sysvar="Zone1Src10" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone1Name%% Source 11 Selected" sysvar="Zone1Src11" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone1Name%% Source 12 Selected" sysvar="Zone1Src12" type="boolean" format="B: :Selected" sample="false" />
+  </category>
+
+  <category name="%%__Zone2Name%% Source Feedback" condition="$Zone2Enabled" sourceid="Zone2">
+    <variable name="%%__Zone2Name%% No Source Selected" sysvar="Zone2Src0" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone2Name%% Source 1 Selected" sysvar="Zone2Src1" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone2Name%% Source 2 Selected" sysvar="Zone2Src2" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone2Name%% Source 3 Selected" sysvar="Zone2Src3" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone2Name%% Source 4 Selected" sysvar="Zone2Src4" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone2Name%% Source 5 Selected" sysvar="Zone2Src5" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone2Name%% Source 6 Selected" sysvar="Zone2Src6" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone2Name%% Source 7 Selected" sysvar="Zone2Src7" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone2Name%% Source 8 Selected" sysvar="Zone2Src8" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone2Name%% Source 9 Selected" sysvar="Zone2Src9" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone2Name%% Source 10 Selected" sysvar="Zone2Src10" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone2Name%% Source 11 Selected" sysvar="Zone2Src11" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone2Name%% Source 12 Selected" sysvar="Zone2Src12" type="boolean" format="B: :Selected" sample="false" />
+  </category>
+
+  <category name="%%__Zone3Name%% Source Feedback" condition="$Zone3Enabled" sourceid="Zone3">
+    <variable name="%%__Zone3Name%% No Source Selected" sysvar="Zone3Src0" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone3Name%% Source 1 Selected" sysvar="Zone3Src1" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone3Name%% Source 2 Selected" sysvar="Zone3Src2" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone3Name%% Source 3 Selected" sysvar="Zone3Src3" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone3Name%% Source 4 Selected" sysvar="Zone3Src4" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone3Name%% Source 5 Selected" sysvar="Zone3Src5" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone3Name%% Source 6 Selected" sysvar="Zone3Src6" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone3Name%% Source 7 Selected" sysvar="Zone3Src7" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone3Name%% Source 8 Selected" sysvar="Zone3Src8" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone3Name%% Source 9 Selected" sysvar="Zone3Src9" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone3Name%% Source 10 Selected" sysvar="Zone3Src10" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone3Name%% Source 11 Selected" sysvar="Zone3Src11" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone3Name%% Source 12 Selected" sysvar="Zone3Src12" type="boolean" format="B: :Selected" sample="false" />
+  </category>
+
+  <category name="%%__Zone4Name%% Source Feedback" condition="$Zone4Enabled" sourceid="Zone4">
+    <variable name="%%__Zone4Name%% No Source Selected" sysvar="Zone4Src0" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone4Name%% Source 1 Selected" sysvar="Zone4Src1" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone4Name%% Source 2 Selected" sysvar="Zone4Src2" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone4Name%% Source 3 Selected" sysvar="Zone4Src3" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone4Name%% Source 4 Selected" sysvar="Zone4Src4" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone4Name%% Source 5 Selected" sysvar="Zone4Src5" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone4Name%% Source 6 Selected" sysvar="Zone4Src6" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone4Name%% Source 7 Selected" sysvar="Zone4Src7" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone4Name%% Source 8 Selected" sysvar="Zone4Src8" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone4Name%% Source 9 Selected" sysvar="Zone4Src9" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone4Name%% Source 10 Selected" sysvar="Zone4Src10" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone4Name%% Source 11 Selected" sysvar="Zone4Src11" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone4Name%% Source 12 Selected" sysvar="Zone4Src12" type="boolean" format="B: :Selected" sample="false" />
+  </category>
+
+  <category name="%%__Zone5Name%% Source Feedback" condition="$Zone5Enabled" sourceid="Zone5">
+    <variable name="%%__Zone5Name%% No Source Selected" sysvar="Zone5Src0" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone5Name%% Source 1 Selected" sysvar="Zone5Src1" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone5Name%% Source 2 Selected" sysvar="Zone5Src2" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone5Name%% Source 3 Selected" sysvar="Zone5Src3" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone5Name%% Source 4 Selected" sysvar="Zone5Src4" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone5Name%% Source 5 Selected" sysvar="Zone5Src5" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone5Name%% Source 6 Selected" sysvar="Zone5Src6" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone5Name%% Source 7 Selected" sysvar="Zone5Src7" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone5Name%% Source 8 Selected" sysvar="Zone5Src8" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone5Name%% Source 9 Selected" sysvar="Zone5Src9" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone5Name%% Source 10 Selected" sysvar="Zone5Src10" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone5Name%% Source 11 Selected" sysvar="Zone5Src11" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone5Name%% Source 12 Selected" sysvar="Zone5Src12" type="boolean" format="B: :Selected" sample="false" />
+  </category>
+
+  <category name="%%__Zone6Name%% Source Feedback" condition="$Zone6Enabled" sourceid="Zone6">
+    <variable name="%%__Zone6Name%% No Source Selected" sysvar="Zone6Src0" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone6Name%% Source 1 Selected" sysvar="Zone6Src1" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone6Name%% Source 2 Selected" sysvar="Zone6Src2" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone6Name%% Source 3 Selected" sysvar="Zone6Src3" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone6Name%% Source 4 Selected" sysvar="Zone6Src4" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone6Name%% Source 5 Selected" sysvar="Zone6Src5" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone6Name%% Source 6 Selected" sysvar="Zone6Src6" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone6Name%% Source 7 Selected" sysvar="Zone6Src7" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone6Name%% Source 8 Selected" sysvar="Zone6Src8" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone6Name%% Source 9 Selected" sysvar="Zone6Src9" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone6Name%% Source 10 Selected" sysvar="Zone6Src10" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone6Name%% Source 11 Selected" sysvar="Zone6Src11" type="boolean" format="B: :Selected" sample="false" />
+    <variable name="%%__Zone6Name%% Source 12 Selected" sysvar="Zone6Src12" type="boolean" format="B: :Selected" sample="false" />
+  </category>
 </variables>

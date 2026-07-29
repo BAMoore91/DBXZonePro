@@ -69,7 +69,19 @@ autoprogramming metadata (`DeviceDescription.xml`).
 | Send Custom Command | any message, hex from the Version byte; framing/checksum added automatically |
 
 Per-zone variables: source, level (%, bar-graph friendly), level in dB
-(text), mute; plus **Device Online** and **Current Scene**. Because dbx only
+(text), mute; plus **Device Online** and **Current Scene**.
+
+**Source-select button feedback.** Because RTI drives a button's active
+(on) state from a *boolean* variable, each zone also exposes one boolean
+per source — `Zone n Source 1 Selected` … `Zone n Source 12 Selected`
+(plus `Zone n No Source Selected` for source 0). Exactly one is true per
+zone, keyed by the same source numbers the **Select Source** function
+uses. To make a source button highlight when active, bind its active
+state to the matching boolean (the button that calls `SelectSource(zone,
+3)` binds to `Zone n Source 3 Selected`). The integer `Source` and
+`Level` variables don't appear in a boolean/active-state variable picker —
+use them for button *text* (with a list format) or a bar graph/slider
+instead. Because dbx only
 offers third parties an open-loop (one-way) protocol, these variables track
 the last commanded values (persisted across processor reboots) rather than
 live device feedback — the same approach dbx recommends in the protocol

@@ -379,6 +379,17 @@ function UpdateZoneVars(z)
     SystemVars.Write("Zone" + n + "Mute", zone.mute, "BOOLEAN");
 }
 
+// Per-source "selected" booleans so each source-select button can show
+// feedback. Keyed by the same source numbers SelectSource uses:
+// 0 = none/off, 1..NUM_INPUTS = inputs. Exactly one is true per zone.
+function UpdateZoneSourceVars(z)
+{
+    var zone = g_zones[z];
+    var n = z + 1;
+    for (var s = 0; s <= NUM_INPUTS; s++)
+        SystemVars.Write("Zone" + n + "Src" + s, (zone.source == s), "BOOLEAN");
+}
+
 function OnSaveTimer()
 {
     var parts = [];
@@ -476,6 +487,7 @@ function SelectSource(zoneArg, sourceArg)
     SendMessage(BuildMultiSVSet(zone.obj, SV_ROUTER_SOURCE, DTYPE_UBYTE, src));
     zone.source = src;
     UpdateZoneVars(zone.num - 1);
+    UpdateZoneSourceVars(zone.num - 1);
     ScheduleSave();
 }
 
@@ -668,8 +680,10 @@ function Init()
 
     SystemVars.Write("Online", false, "BOOLEAN");
     SystemVars.Write("CurrentScene", g_scene);
-    for (var i = 0; i < NUM_ZONES; i++)
+    for (var i = 0; i < NUM_ZONES; i++) {
         UpdateZoneVars(i);
+        UpdateZoneSourceVars(i);
+    }
 
     System.OnShutdownFunc = OnShutdown;
     DBG("driver initialized (" + (g_useTCP ? "TCP" : "serial") + " mode)");

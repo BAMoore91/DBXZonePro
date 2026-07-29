@@ -161,6 +161,15 @@ sb.SelectSource(1, 1);
 check("SelectSource zone1 input1 (serial)", strToHex(txLog.shift()),
     "F0 64 00 01 00 00 00 1B 00 33 01 05 00 1E 00 20 01 05 00 1E 01 00 00 00 00 01 00 00 01 01 5E");
 check("Zone1Source sysvar", String(sysvars.Zone1Source), "1");
+check("Zone1 Source 1 Selected bool true", String(sysvars.Zone1Src1), "true");
+check("Zone1 Source 2 Selected bool false", String(sysvars.Zone1Src2), "false");
+check("Zone1 No Source Selected bool false", String(sysvars.Zone1Src0), "false");
+
+// changing source flips exactly one boolean per zone
+sb.SelectSource(1, 3); txLog.shift();
+check("source change: Src1 now false", String(sysvars.Zone1Src1), "false");
+check("source change: Src3 now true", String(sysvars.Zone1Src3), "true");
+sb.SelectSource(1, 1); txLog.shift(); // restore for later expectations
 
 sb.SetLevelRaw(1, 215);
 check("SetLevelRaw zone1 215 (serial)", strToHex(txLog.shift()),
