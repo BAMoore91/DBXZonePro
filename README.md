@@ -112,13 +112,16 @@ PackageDriver warns (but does not fail) on non-standard tags.
   screen, or capture a command with the **Network Trace** window
   (**Ctrl+Shift+T**). The Ctrl+Shift+O dialog lists the four Address bytes
   as b0–b3 top-to-bottom in **decimal**; the driver wants them in send
-  order **b3 b2 b1 b0**, converted to hex (e.g. b0=22, b1=0, b2=5, b3=1 →
-  `01 05 00 16`). The shipped defaults were read from a ZonePro 1261
-  (Node 32) test unit (`01 05 00 16` … `01 05 05 1B`, zones 1–2 confirmed,
-  3–6 following the same Row/Index pattern). **Note:** changing these
-  defaults in the driver does *not* update the values already stored in an
-  existing Integration Designer project — edit the Zone fields in the
-  Driver Configuration Editor to correct an existing install.
+  order **b3 b2 b1 b0**, converted to hex (e.g. b0=30, b1=0, b2=5, b3=1 →
+  `01 05 00 1E`). The shipped defaults are the dbx standard mono-config
+  router IDs (`01 05 00 1E` … `01 05 05 23`, Row = zone−1, Index = 29+zone).
+  Object IDs are **configuration-dependent** — editing the config, including
+  switching inputs between **stereo and mono**, reassigns them (a custom
+  config on one test unit produced `01 05 00 16` … instead), so always
+  verify each zone against your device. **Note:** changing these defaults
+  in the driver does *not* update values already stored in an existing
+  Integration Designer project — edit the Zone fields in the Driver
+  Configuration Editor to correct an existing install.
 * **Level Scaling** (advanced) — raw fader full scale (default 415 = +20 dB),
   0 dB point (default 215), counts-per-dB scale (default 10, per the dbx
   protocol guide: 0 dB = raw 215, +20 dB = raw 415, matching the master

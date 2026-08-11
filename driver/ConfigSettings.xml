@@ -21,25 +21,25 @@
   </category>
 
   <category name="Zones"
-            description="Output zone setup. Each zone is controlled through its Router (RTE) object. Object IDs depend on the configuration loaded in the unit, so ALWAYS verify them against your device: select the router in ZonePro Designer and press Ctrl+Shift+O, then read the four Address bytes and enter them in send order b3(VirtualDevice) b2(Col) b1(Row) b0(Index), each converted from decimal to hex. The defaults below were read from a ZonePro 1261 (Node 32) test unit; zones 1-2 are confirmed and 3-6 follow the same pattern (verify each).">
+            description="Output zone setup. Each zone is controlled through its Router (RTE) object. Object IDs depend on the configuration loaded in the unit and change if the configuration is edited - including switching inputs between stereo and mono - so ALWAYS verify them against your device: select the router in ZonePro Designer and press Ctrl+Shift+O, then enter the four Address bytes in send order b3(VirtualDevice) b2(Col) b1(Row) b0(Index), each converted from decimal to hex. The defaults below are the dbx standard mono-config router IDs (01 05 00 1E ... 01 05 05 23, Row = zone-1, Index = 29+zone); a differently-built config assigns different Index (last) bytes, so confirm each zone.">
     <setting type="boolean" name="Zone 1 Enabled" variable="Zone1Enabled" default="true" />
     <setting type="string"  name="Zone 1 Name" variable="__Zone1Name" default="Zone 1" condition="$Zone1Enabled" />
-    <setting type="string"  name="Zone 1 Router Object ID (4 hex bytes)" variable="Zone1ObjectID" default="01 05 00 16" condition="$Zone1Enabled" />
+    <setting type="string"  name="Zone 1 Router Object ID (4 hex bytes)" variable="Zone1ObjectID" default="01 05 00 1E" condition="$Zone1Enabled" />
     <setting type="boolean" name="Zone 2 Enabled" variable="Zone2Enabled" default="true" />
     <setting type="string"  name="Zone 2 Name" variable="__Zone2Name" default="Zone 2" condition="$Zone2Enabled" />
-    <setting type="string"  name="Zone 2 Router Object ID (4 hex bytes)" variable="Zone2ObjectID" default="01 05 01 17" condition="$Zone2Enabled" />
+    <setting type="string"  name="Zone 2 Router Object ID (4 hex bytes)" variable="Zone2ObjectID" default="01 05 01 1F" condition="$Zone2Enabled" />
     <setting type="boolean" name="Zone 3 Enabled" variable="Zone3Enabled" default="true" />
     <setting type="string"  name="Zone 3 Name" variable="__Zone3Name" default="Zone 3" condition="$Zone3Enabled" />
-    <setting type="string"  name="Zone 3 Router Object ID (4 hex bytes)" variable="Zone3ObjectID" default="01 05 02 18" condition="$Zone3Enabled" />
+    <setting type="string"  name="Zone 3 Router Object ID (4 hex bytes)" variable="Zone3ObjectID" default="01 05 02 20" condition="$Zone3Enabled" />
     <setting type="boolean" name="Zone 4 Enabled" variable="Zone4Enabled" default="true" />
     <setting type="string"  name="Zone 4 Name" variable="__Zone4Name" default="Zone 4" condition="$Zone4Enabled" />
-    <setting type="string"  name="Zone 4 Router Object ID (4 hex bytes)" variable="Zone4ObjectID" default="01 05 03 19" condition="$Zone4Enabled" />
+    <setting type="string"  name="Zone 4 Router Object ID (4 hex bytes)" variable="Zone4ObjectID" default="01 05 03 21" condition="$Zone4Enabled" />
     <setting type="boolean" name="Zone 5 Enabled" variable="Zone5Enabled" default="true" />
     <setting type="string"  name="Zone 5 Name" variable="__Zone5Name" default="Zone 5" condition="$Zone5Enabled" />
-    <setting type="string"  name="Zone 5 Router Object ID (4 hex bytes)" variable="Zone5ObjectID" default="01 05 04 1A" condition="$Zone5Enabled" />
+    <setting type="string"  name="Zone 5 Router Object ID (4 hex bytes)" variable="Zone5ObjectID" default="01 05 04 22" condition="$Zone5Enabled" />
     <setting type="boolean" name="Zone 6 Enabled" variable="Zone6Enabled" default="true" />
     <setting type="string"  name="Zone 6 Name" variable="__Zone6Name" default="Zone 6" condition="$Zone6Enabled" />
-    <setting type="string"  name="Zone 6 Router Object ID (4 hex bytes)" variable="Zone6ObjectID" default="01 05 05 1B" condition="$Zone6Enabled" />
+    <setting type="string"  name="Zone 6 Router Object ID (4 hex bytes)" variable="Zone6ObjectID" default="01 05 05 23" condition="$Zone6Enabled" />
   </category>
 
   <category name="Level Scaling" advanced="true"
